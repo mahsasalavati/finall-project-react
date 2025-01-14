@@ -1,57 +1,68 @@
+import { Box, FormControl, InputLabel, Stack } from "@mui/material";
 import React from "react";
-import PersonIcon from "@mui/icons-material/Person";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { Box, Button, Stack } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import { light } from "@mui/material/styles/createPalette";
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#757ce8",
-      main: "#3f50b5",
-      dark: "#002884",
-      contrastText: "#fff",
-    },
-  },
-});
+import Button from "@mui/material/Button";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Navbar() {
   return (
-    <Stack component={"nav"}>
-      <Box
+    <>
+      <Stack
         sx={{
           display: "flex",
-          paddingTop: 5,
-          paddingBottom: 3,
-          paddingLeft: 20,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
           gap: 4,
+          borderBottom:'1px solid gray'
         }}
       >
-        <LocalMallIcon
-          sx={{ color: "#91AC8F", fontSize: 30, border: 2, borderRadius: 50 }}
-        />
-        <PersonIcon sx={{ color: "#91AC8F", fontSize: 30 }} />
-        <Box sx={{ width: 50, height: 50, paddingLeft: 130 }}>LOGO</Box>
-      </Box>
+        <Box component={"h2"}>LOGO</Box>
+        <Box>contact</Box>
+        <Box>About Us</Box>
+        <Box
+          sx={{
+            width: 400,
+            height: 40,
+            border: 1,
+            borderRadius: 10,
+            margin: "0 100px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 10px",
+          }}
+        >
+          <input type="text" placeholder="Search" />
+          <SearchIcon />
+        </Box>
+        <PersonOutlineIcon />
+        <LocalMallIcon />
+
+        <Button>LOGIN</Button>
+      </Stack>
 
       <Stack
         sx={{
-          height: 60,
-          bgcolor: "#EFF3EA",
           display: "flex",
+          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "row",
+          gap: 8,
+          margin: 4,
+          color: "gray",
+          
         }}
       >
-        <Button sx={{color:'black'}}>کیف</Button>
-        <Button sx={{color:'black'}}>پوشاک</Button>
-        <Button sx={{color:'black'}}>ساعت</Button>
-        <Button sx={{color:'black'}}>کفش</Button>
-        <Button sx={{color:'black'}}>عینک</Button>
-        <Button sx={{color:'black'}}>اکسسوری</Button>
-        <Button sx={{color:'black'}}>کدمرسوله</Button>
+        <Button>Women</Button>
+        <Button>Men</Button>
+        <Button>Kids</Button>
+        <Button>Home</Button>
+        <Button>Shoes & Bags</Button>
+        <Button>Sports</Button>
+        <Button>Beauty</Button>
       </Stack>
-    </Stack>
+    </>
   );
 }
