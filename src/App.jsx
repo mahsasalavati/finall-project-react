@@ -2,6 +2,7 @@ import React from 'react';
 import { CssBaseline } from '@mui/material';
 import Navbar from './component/Navbar';
 import Products from './Pages/Products';
+import Home from './Pages/Home';
 
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
     <CssBaseline/>
     <Navbar/>
     <Products/>
+    <Home/>
       
     </>
   )
