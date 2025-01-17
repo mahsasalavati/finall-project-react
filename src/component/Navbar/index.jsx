@@ -4,6 +4,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -55,7 +56,7 @@ export default function Navbar() {
           
         }}
       >
-        <Button>Women</Button>
+        <Link to={'/products'}>Women</Link>
         <Button>Men</Button>
         <Button>Kids</Button>
         <Button>Home</Button>

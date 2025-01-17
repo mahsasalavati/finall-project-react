@@ -3,6 +3,7 @@ import React from "react";
 import Link from "@mui/material/Link";
 
 export default function Discountproducts() {
+  
   return (
     <Stack
       sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 2, margin:5}}
