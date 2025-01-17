@@ -1,5 +1,11 @@
-import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardActions from '@mui/material/CardActions';
 
 export default function Products() {
   const [product, setProduct] = useState();
@@ -14,22 +20,34 @@ export default function Products() {
   }, []);
   return (
     <>
-      <Box
-        sx={{
-          width: 350,
-          borderRadius: 2,
-          padding: 3,
-          boxShadow: 5,
-          backgroundColor: "#FAF7F0",
-        }}
-      >
-        <Box component={"img"}></Box>
-        <Typography>Lorem ipsum dolor sit amet.</Typography>
-        <Typography>25000</Typography>
-        <Button sx={{ width: 100, backgroundColor: "#D8D2C2", marginTop: 2 }}>
-          info
+       <Card sx={{ maxWidth: 300, backgroundColor:'#FAF7F0', boxShadow:5, margin:5 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lizard
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" sx={{backgroundColor:'#D8D2C2', width:200}}>
+          More Info
         </Button>
-      </Box>
+      </CardActions>
+    </Card>
     </>
   );
 }
+
+
+
+

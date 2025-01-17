@@ -4,9 +4,10 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate=useNavigate()
   return (
     <>
       <Stack
@@ -51,13 +52,14 @@ export default function Navbar() {
           alignItems: "center",
           justifyContent: "center",
           gap: 8,
-          margin: 4,
           color: "gray",
+          backgroundColor:'#D8D2C2',
+          padding:1
           
         }}
       >
-        <Link to={'/products'}>Women</Link>
-        <Button>Men</Button>
+        <Button onClick={()=> navigate(`/products`)}>Women</Button>
+        <Button onClick={()=> navigate(`/products`)}>Men</Button>
         <Button>Kids</Button>
         <Button>Home</Button>
         <Button>Shoes & Bags</Button>
