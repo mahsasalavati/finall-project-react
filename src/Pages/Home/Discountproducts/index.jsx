@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 import Link from "@mui/material/Link";
 
@@ -13,19 +13,19 @@ export default function Discountproducts() {
           height: 200,
           borderRadius: 3,
           background:
-            "linear-gradient(315deg, rgba(195,166,34,1) 0%, rgba(253,45,95,1) 100%)",
+            "linear-gradient(315deg, rgba(216,210,194,1) 0%, rgba(177,116,87,1) 100%)",
           display: "flex",
           flexDirection: "row",
         }}
       >
         <Box component={"img"} sx={{ width: "30%", overflow: "hidden" }}></Box>
         <Stack sx={{ display: "flex", justifyContent: "center" }}>
-          <Box component={"h3"} sx={{ paddingLeft: 5 }}>
+          <Typography component={"h3"} sx={{ paddingLeft: 5 }}>
             UP TO 60% DISCOUNT
-          </Box>
-          <Link sx={{ paddingLeft: 12 }} href="#">
+          </Typography>
+          <Typography sx={{ paddingLeft: 12, cursor:'pointer' }} href="#">
             Shop now
-          </Link>
+          </Typography>
         </Stack>
       </Stack>
       <Stack
@@ -34,19 +34,19 @@ export default function Discountproducts() {
           height: 200,
           borderRadius: 3,
           background:
-            "linear-gradient(315deg, rgba(195,166,34,1) 0%, rgba(253,45,95,1) 100%)",
+            "linear-gradient(315deg, rgba(216,210,194,1) 0%, rgba(177,116,87,1) 100%)",
           display: "flex",
           flexDirection: "row",
         }}
       >
         <Box component={"img"} sx={{ width: "30%", overflow: "hidden" }}></Box>
         <Stack sx={{ display: "flex", justifyContent: "center" }}>
-          <Box component={"h3"} sx={{ paddingLeft: 5 }}>
+        <Typography component={"h3"} sx={{ paddingLeft: 5 }}>
             UP TO 60% DISCOUNT
-          </Box>
-          <Link sx={{ paddingLeft: 12 }} href="#">
+          </Typography>
+          <Typography sx={{ paddingLeft: 12, cursor:'pointer' }} href="#">
             Shop now
-          </Link>
+          </Typography>
         </Stack>
       </Stack>
     </Stack>
