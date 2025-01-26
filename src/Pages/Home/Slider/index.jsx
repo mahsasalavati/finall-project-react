@@ -12,14 +12,20 @@ export default function Slider() {
     useEffect(()=>{
         (async()=>{
             try{
-                const res=await fetch()
-                const data=await res.json()
+                const res=await fetch('http://localhost:1337/api/sliders');
+                const data=await res.json();
+                setSlider(data.data);
             }catch(error){
 
             }   
         })();
 
     },[])
+
+    const items = slider?.map((e, index)=> (<SwiperSlide key={index}>
+      <img src={`http://localhost:1337 ${e.image}`}  />
+    </SwiperSlide>));
+    console.log(items)
   return (
     <>
     <Box sx={{height:'60vh', marginTop:20}}>
@@ -37,15 +43,7 @@ export default function Slider() {
         modules={[Autoplay, Pagination, Navigation]}
         className="slider"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {items}
       </Swiper>
 
 
