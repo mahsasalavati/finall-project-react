@@ -17,7 +17,8 @@ export default function Navbar() {
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
-          borderBottom:'1px solid gray'
+          borderBottom:'1px solid gray',
+          height:60
         }}
       >
         <Box component={"h2"}>LOGO</Box>
@@ -58,7 +59,7 @@ export default function Navbar() {
           
         }}
       >
-        <Button onClick={()=> navigate(`/products`)}>Women</Button>
+        <Button onClick={()=> navigate(`/products/`)}>Women</Button>
         <Button onClick={()=> navigate(`/products`)}>Men</Button>
         <Button>Kids</Button>
         <Button>Home</Button>

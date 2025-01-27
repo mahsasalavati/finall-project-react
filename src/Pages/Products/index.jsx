@@ -8,19 +8,20 @@ export default function Products() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('https://fakestoreapi.com/products');
+        const res = await fetch('http://localhost:1337/api/products?populate=*');
         const data = await res.json();
-        setProduct(data);
+        setProduct(data.data);
        
       } catch (error) {}
     })();
   }, []);
    
 
-  const items=product?.map((e, index)=>(<Card name={e.name} price={e.price} key={index} image={e.image}/>))
+  const items=product?.map((e, index)=>(<Card title={e.title} categories={e.categories[0]} description={e.description} price={e.price} key={index} img={import.meta.env.VITE_BASE_URL + e.image[0].url}/>))
+
   return (
     <>
-      <Box sx={{display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap', gap:5}}>
+      <Box sx={{display:'flex', justifyContent:'center', flexWrap:'wrap', gap:5}}>
         {items}
       </Box>
     </>

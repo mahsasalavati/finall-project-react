@@ -10,26 +10,25 @@ import CardActions from '@mui/material/CardActions';
 
 
 
-export default function ProductCard({image,name, price}) {
+export default function ProductCard({img,title, price,description}) {
   return (
     <>
      <Card sx={{ maxWidth: 300, backgroundColor:'#FAF7F0', boxShadow:5}}>
       <CardActionArea>
-        <CardMedia
+          <CardMedia
           component="img"
-          height="140"
-          alt="green iguana"
-          image={image}
-        />
+          height="250" 
+          image={img} 
+          />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {name}
+            {title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {description}
           </Typography>
-          <Typography>{price}</Typography>
+          <Typography>Price : ${price}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
