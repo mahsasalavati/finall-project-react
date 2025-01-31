@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Button from "@mui/material/Button";
@@ -7,7 +7,32 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  const [categories, setCategories] = useState();
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch("http://localhost:1337/api/categories");
+        const data = await res.json();
+        setCategories(data.data);
+      } catch (error) {}
+    })();
+  }, []);
+
+  const category = categories?.map((e, index) => (
+    <Button
+      onClick={() => navigate(`/products/${e.Title}`)}
+      sx={{
+        padding: 2.5,
+        marginLeft: 15,
+      }}
+      id={e.id}
+      key={index}
+    >
+      {e.Title}
+    </Button>
+  ));
+
   return (
     <>
       <Stack
@@ -17,8 +42,8 @@ export default function Navbar() {
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
-          borderBottom:'1px solid gray',
-          height:60
+          borderBottom: "1px solid gray",
+          height: 60,
         }}
       >
         <Box component={"h2"}>LOGO</Box>
@@ -46,27 +71,14 @@ export default function Navbar() {
         <Button>LOGIN</Button>
       </Stack>
 
-      <Stack
+      <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 8,
           color: "gray",
-          backgroundColor:'#D8D2C2',
-          padding:1
-          
+          backgroundColor: "#D8D2C2",
         }}
       >
-        <Button onClick={()=> navigate(`/products/`)}>Women</Button>
-        <Button onClick={()=> navigate(`/products`)}>Men</Button>
-        <Button>Kids</Button>
-        <Button>Home</Button>
-        <Button>Shoes & Bags</Button>
-        <Button>Sports</Button>
-        <Button>Beauty</Button>
-      </Stack>
+        {category}
+      </Box>
     </>
   );
 }

@@ -39,7 +39,9 @@ export default function Footer() {
         </Stack>
 
         <Stack>
-          <Typography sx={{ fontSize: 20, paddingBottom:2}}>NEWSLETTER</Typography>
+          <Typography sx={{ fontSize: 20, paddingBottom: 2 }}>
+            NEWSLETTER
+          </Typography>
           <Typography sx={{ width: 350, fontSize: 15, paddingBottom: 2 }}>
             Do you want to receive the newest trends and special offers? Sign up
             and get 10% off
@@ -61,7 +63,7 @@ export default function Footer() {
                 borderRadius: 50,
                 position: "absolute",
                 right: 0,
-                color:'white'
+                color: "white",
               }}
             >
               Send
@@ -70,7 +72,9 @@ export default function Footer() {
         </Stack>
 
         <Stack>
-          <Typography sx={{fontSize:20}} component={"h3"}>Follow Us</Typography>
+          <Typography sx={{ fontSize: 20 }} component={"h3"}>
+            Follow Us
+          </Typography>
           <Box>
             <InstagramIcon sx={{ margin: 1 }} />
             <FacebookIcon sx={{ margin: 1 }} />
@@ -84,13 +88,13 @@ export default function Footer() {
           padding: 3,
           display: "flex",
           flexDirection: "row",
-          alignItems:'center',
-          gap:5,
+          alignItems: "center",
+          gap: 5,
           backgroundColor: "#4A4947",
           width: "100%",
           borderTop: 1,
           borderColor: "white",
-          paddingLeft:14
+          paddingLeft: 14,
         }}
       >
         <Typography
@@ -133,7 +137,10 @@ export default function Footer() {
         >
           Shop
         </Typography>
-        <Typography component={"h3"} sx={{ color: "white", fontSize:20, paddingLeft:106}}>
+        <Typography
+          component={"h3"}
+          sx={{ color: "white", fontSize: 20, paddingLeft: 106 }}
+        >
           LOGO
         </Typography>
       </Stack>
