@@ -1,58 +1,56 @@
-import { Box, Card, Stack } from '@mui/material'
-import React, { useState ,useEffect} from 'react'
-import { useParams } from 'react-router-dom';
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardActions from "@mui/material/CardActions";
+import { Box, Card, Stack } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Container, Typography, Button, CardMedia, Grid } from "@mui/material";
 
 export default function ProductDetails() {
-  const [productDetail, setProductDetail]=useState()
-  const {id}=useParams()
+  const [productDetail, setProductDetail] = useState([0]);
+  const { id } = useParams();
   useEffect(() => {
-      (async () => {
-        try {
-          const res = await fetch(`http://localhost:1337/api/products?filters[id][$in][0]=${id}&populate=image`);
-          const data = await res.json();
-          setProductDetail(data.data);
-         
-        } catch (error) {}
-      })();
-    }, [id]);
-
-
-
+    (async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:1337/api/products?filters[id]=${id}&populate=image`
+        );
+        const data = await res.json();
+        console.log(data);
+        setProductDetail(data.data);
+      } catch (error) {}
+    })();
+  }, [id]);
 
   return (
     <>
-                <Card>
+      <Container sx={{ p: 10}}>
+        <Grid container spacing={4}>
+          {/* Product Image */}
+          <Grid width={350} height={'100%'}>
+            <Card>
               <CardMedia
                 component="img"
-                width="300"
-                height="400" // Adjust height as needed
-                image={`http://localhost:1337/${productDetail?.image}`}
-                alt={productDetail?.title}
+                image={import.meta.env.VITE_BASE_URL + productDetail.image}
               />
-              <CardContent>
-                <Typography variant="h5" component="h2">
-                  {productDetail?.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {productDetail?.description}
-                </Typography>
-                <Typography variant="h6" sx={{ mt: 2 }}>
-                  Price: ${productDetail?.price}
-                </Typography>
-                <Button variant="contained" onClick={() => addToCart(productDetail)} sx={{ mt: 2 }}>
-                  Add to Cart
-                </Button>
-              </CardContent>
+              
             </Card>
-    
+          </Grid>
 
-      
+          {/* Product Details */}
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" component="h1" gutterBottom>
+              {productDetail[0].title}
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              {productDetail[0].description}
+            </Typography>
+            <Typography variant="h5" color="primary">
+              price: ${productDetail[0].price}
+            </Typography>
+            <Button variant="contained" color="primary" size="large">
+              Add to Cart
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
     </>
-  )
+  );
 }

@@ -26,6 +26,7 @@ export default function Products() {
       description={e.description}
       price={e.price}
       key={index}
+      id={e.id}
       img={import.meta.env.VITE_BASE_URL + e.image[0].url}
     />
   ));

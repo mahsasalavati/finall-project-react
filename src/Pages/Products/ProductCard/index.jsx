@@ -14,15 +14,13 @@ export default function ProductCard({ id, img, title, price, description }) {
     <>
       <Card sx={{ maxWidth: 300, backgroundColor: "#FAF7F0", boxShadow: 5 }}>
         <CardActionArea>
-          <CardMedia component="img" height="250" image={img} />
+          <CardMedia sx={{width:300}} component="img" height="250"  image={img} />
 
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {title}
             </Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {description}
-            </Typography>
+            
             <Typography>Price : ${price}</Typography>
           </CardContent>
         </CardActionArea>
