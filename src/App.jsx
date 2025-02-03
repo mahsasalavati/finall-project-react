@@ -5,7 +5,7 @@ import Products from './Pages/Products';
 import Home from './Pages/Home';
 import Footer from './component/Footer';
 import { Route, Routes } from 'react-router-dom';
-import { ProductDetails } from './Pages';
+import { Cart, ProductDetails } from './Pages';
 
 
 export default function App() {
@@ -18,6 +18,7 @@ export default function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/products/:categories' element={<Products/>}/>
         <Route path='/product-details/:id/' element={<ProductDetails/>}/>
+        <Route path='/cart' element={<Cart/>}/>
         
       </Routes>
     </Box>

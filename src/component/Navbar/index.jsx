@@ -1,14 +1,16 @@
-import { Box, FormControl, InputLabel, Stack } from "@mui/material";
+import { Badge, Box, FormControl, InputLabel, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState();
+  const Cartbadge=useSelector(state=>state.cart.items).length
   useEffect(() => {
     (async () => {
       try {
@@ -66,7 +68,11 @@ export default function Navbar() {
           <SearchIcon />
         </Box>
         <PersonOutlineIcon />
+        <Link to={'/cart'}>
+        <Badge badgeContent={Cartbadge}>
         <LocalMallIcon />
+        </Badge>
+        </Link>
 
         <Button>LOGIN</Button>
       </Stack>

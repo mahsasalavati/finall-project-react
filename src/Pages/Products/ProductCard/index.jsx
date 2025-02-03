@@ -8,7 +8,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({ id, img, title, price, description }) {
+export default function ProductCard({ id, img, title, price }) {
   const navigate = useNavigate();
   return (
     <>
