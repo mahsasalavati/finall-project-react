@@ -6,11 +6,13 @@ import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState();
-  const Cartbadge=useSelector(state=>state.cart.items).length
+  const Cartbadge = useSelector((state) => state.cart.items).length;
   useEffect(() => {
     (async () => {
       try {
@@ -35,6 +37,14 @@ export default function Navbar() {
     </Button>
   ));
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <Stack
@@ -49,8 +59,9 @@ export default function Navbar() {
         }}
       >
         <Box component={"h2"}>LOGO</Box>
-        <Box>contact</Box>
-        <Box>About Us</Box>
+        <Button onClick={() => navigate(`/`)}>Home</Button>
+        <Button onClick={()=>navigate(`/contact`)}>contact</Button>
+        <Button onClick={() => navigate(`/about`)}>About Us</Button>
         <Box
           sx={{
             width: 400,
@@ -67,11 +78,34 @@ export default function Navbar() {
           <input type="text" placeholder="Search" />
           <SearchIcon />
         </Box>
-        <PersonOutlineIcon />
-        <Link to={'/cart'}>
-        <Badge badgeContent={Cartbadge}>
-        <LocalMallIcon />
-        </Badge>
+
+        <Button
+          id="basic-button"
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+        >
+          <PersonOutlineIcon />
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
+
+        <Link to={"/cart"}>
+          <Badge badgeContent={Cartbadge}>
+            <LocalMallIcon />
+          </Badge>
         </Link>
 
         <Button>LOGIN</Button>
