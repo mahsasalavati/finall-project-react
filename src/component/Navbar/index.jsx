@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import TextField from '@mui/material/TextField';
+
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ export default function Navbar() {
       sx={{
         padding: 2.5,
         marginLeft: 15,
+        color:"black"
       }}
       id={e.id}
       key={index}
@@ -59,26 +62,22 @@ export default function Navbar() {
         }}
       >
         <Box component={"h2"}>LOGO</Box>
-        <Button onClick={() => navigate(`/`)}>Home</Button>
-        <Button onClick={()=>navigate(`/contact`)}>contact</Button>
-        <Button onClick={() => navigate(`/about`)}>About Us</Button>
+        <Button sx={{color: "black"}} onClick={() => navigate(`/`)}>Home</Button>
+        <Button sx={{color: "black"}} onClick={()=>navigate(`/contact`)}>contact</Button>
+        <Button sx={{color: "black"}} onClick={() => navigate(`/about`)}>About Us</Button>
         <Box
-          sx={{
-            width: 400,
-            height: 40,
-            border: 1,
-            borderRadius: 10,
-            margin: "0 100px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0 10px",
-          }}
-        >
-          <input type="text" placeholder="Search" />
-          <SearchIcon />
-        </Box>
-
+      component="form"
+      sx={{ '& > :not(style)': {width: '40ch' }, margin: "0 100px",
+       }}
+      noValidate
+      autoComplete="off"
+      
+    >
+      <TextField id="outlined-basic" label="Search" variant="outlined"/>
+    
+    </Box>
+                
+       
         <Button
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}
@@ -108,7 +107,7 @@ export default function Navbar() {
           </Badge>
         </Link>
 
-        <Button>LOGIN</Button>
+        <Button sx={{color:"black"}}>LOGIN</Button>
       </Stack>
 
       <Box

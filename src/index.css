@@ -6,3 +6,7 @@
     list-style: none;
 }
 
+#outlined-basic{
+    padding: 10px;
+    border-radius: 50px;
+}

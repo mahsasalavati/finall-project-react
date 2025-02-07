@@ -12,6 +12,10 @@ import {
   TableFooter,
 } from "@mui/material";
 import { addToCart, removeFromCart , clear} from "../../Store/Slice/CartSlice";
+import DeleteIcon from '@mui/icons-material/Delete';
+import Chip from '@mui/material/Chip';
+
+
 
 
 export default function Cart() {
@@ -64,13 +68,27 @@ export default function Cart() {
         <TableCell align="center">{quantity}</TableCell>
         <TableCell align="center">${product.price * quantity}</TableCell>
         <TableCell align="center">
-          <Button onClick={()=>handleIncrement(product)}>+</Button>
+        <Chip
+        label="+"
+        onClick={()=>handleIncrement(product)}
+        variant="outlined"
+      />
         </TableCell>
         <TableCell align="center">
-          <Button onClick={()=>handleDecrement(product)}>-</Button>
+        <Chip
+        label="-"
+        onClick={()=>handleDecrement(product)}
+        variant="outlined"
+        sx={{width:35, height:35, borderRadius:50}}
+      />
         </TableCell>
         <TableCell align="center">
-          <Button onClick={()=>handleClear(product)}>clear</Button>
+        <Chip
+        label="delete"
+        onClick={handleClear}
+        deleteIcon={<DeleteIcon />}
+        variant="outlined"
+      />
         </TableCell>
       </TableRow>
     );
@@ -101,6 +119,7 @@ export default function Cart() {
                   <TableCell align="center"></TableCell>
                   <TableCell align="center">Total Price</TableCell>
                   <TableCell align="center">${totalPrice}</TableCell>
+                  <TableCell align="center"><Button sx={{backgroundColor: "#4caf50", color:"white"}}>payment</Button></TableCell>
                 </TableRow>
         </TableFooter>
       </Table>
