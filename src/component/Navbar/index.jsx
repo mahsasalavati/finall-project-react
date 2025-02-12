@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from '@mui/material/TextField';
+import { Token } from "@mui/icons-material";
 
 
 export default function Navbar() {
@@ -107,7 +108,7 @@ export default function Navbar() {
           </Badge>
         </Link>
 
-        <Button sx={{color:"black"}}>LOGIN</Button>
+        <Button onClick={()=>navigate('/login')} sx={{color:"black"}}>LOGIN</Button>
       </Stack>
 
       <Box

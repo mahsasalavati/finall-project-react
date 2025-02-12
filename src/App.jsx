@@ -8,6 +8,9 @@ import { Route, Routes } from 'react-router-dom';
 import { Cart, ProductDetails } from './Pages';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import Login from './Pages/Auth/Login';
+import Register from './Pages/Auth/Register';
+import Auth from './Pages/Auth';
 
 
 export default function App() {
@@ -23,6 +26,9 @@ export default function App() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/auth' element={<Auth/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
         
       </Routes>
     </Box>

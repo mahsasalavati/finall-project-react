@@ -14,6 +14,7 @@ import {
 import { addToCart, removeFromCart , clear} from "../../Store/Slice/CartSlice";
 import DeleteIcon from '@mui/icons-material/Delete';
 import Chip from '@mui/material/Chip';
+import { Token } from "@mui/icons-material";
 
 
 
@@ -66,7 +67,7 @@ export default function Cart() {
         </TableCell>
         <TableCell align="center">${product.price}</TableCell>
         <TableCell align="center">{quantity}</TableCell>
-        <TableCell align="center">${product.price * quantity}</TableCell>
+        <TableCell align="center">${(product.price * quantity).toFixed(2)}</TableCell>
         <TableCell align="center">
         <Chip
         label="+"
@@ -85,7 +86,7 @@ export default function Cart() {
         <TableCell align="center">
         <Chip
         label="delete"
-        onClick={handleClear}
+        onClick={()=>handleClear(product)}
         deleteIcon={<DeleteIcon />}
         variant="outlined"
       />
@@ -118,7 +119,7 @@ export default function Cart() {
                   <TableCell align="center"></TableCell>
                   <TableCell align="center"></TableCell>
                   <TableCell align="center">Total Price</TableCell>
-                  <TableCell align="center">${totalPrice}</TableCell>
+                  <TableCell align="center">${totalPrice.toFixed(2)}</TableCell>
                   <TableCell align="center"><Button sx={{backgroundColor: "#4caf50", color:"white"}}>payment</Button></TableCell>
                 </TableRow>
         </TableFooter>
